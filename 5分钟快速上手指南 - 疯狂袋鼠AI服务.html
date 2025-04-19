@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5分钟快速上手指南 - 疯狂袋鼠AI服务</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {"50":"#eef2ff","100":"#e0e7ff","200":"#c7d2fe","300":"#a5b4fc","400":"#818cf8","500":"#6366f1","600":"#4f46e5","700":"#4338ca","800":"#3730a3","900":"#312e81"}
+          }
+        },
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors">
+  
+  <!-- 文档主内容 -->
+  <main class="container mx-auto px-6 py-16 max-w-4xl">
+    <!-- 标题区 -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-extrabold mb-4">使用疯狂袋鼠AI的5分钟快速指南</h1>
+      <div class="flex justify-center space-x-4 mt-6">
+        <a href="/" 
+           class="px-6 py-3 bg-primary-600 hover:bg-primary-500 text-white rounded-lg transition">
+           返回控制台
+        </a>
+        <button onclick="window.print()"
+           class="px-6 py-3 border-2 border-primary-500 text-primary-600 dark:text-primary-300 rounded-lg hover:bg-primary-50 dark:hover:bg-gray-800 transition">
+           下载PDF版
+        </button>
+      </div>
+    </div>
+
+    <!-- 步骤指导 -->
+    <article class="space-y-12">
+      <!-- 每个步骤区块 -->
+      <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+        <h2 class="text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400">注册与登录</h2>
+        <div class="space-y-6">
+          <p class="leading-relaxed">
+            通过首⻚「控制台」按钮或右上角【登录/注册】入口进入账号系统。支持以下方式：
+          </p>
+          <ul class="list-disc pl-6 space-y-2 marker:text-primary-500">
+            <li>新用户：邮箱验证注册</li>
+            <li>已有账号：用户名+密码登录</li>
+            <li>第三方登录：支持GitHub账户授权</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 充值步骤 -->
+      <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+        <h2 class="text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400">兑换使用额度</h2>
+        <div class="space-y-4">
+          <p>导航到「钱包」模块，按提示输入兑换码获取初始额度。</p>
+          <div class="p-4 bg-orange-100 dark:bg-gray-700 rounded-lg">
+            <h3 class="font-semibold text-orange-600 dark:text-orange-300 mb-2">注意</h3>
+            <ul class="list-disc pl-6 space-y-2 marker:text-orange-500">
+              <li>初始赠送 $0.01 (5000字符)</li>
+              <li>$1 = 500,000 字符</li>
+              <li>充值后可申请发票</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- API密钥管理 -->
+      <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+        <h2 class="text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400">创建API密钥</h2>
+        <div class="space-y-6">
+          <ol class="list-decimal pl-6 space-y-4 marker:font-semibold marker:text-primary-500">
+            <li>进入「API令牌」模块</li>
+            <li>点击【创建新密钥】</li>
+            <li>配置参数：
+              <ul class="list-disc pl-8 mt-2 space-y-2">
+                <li>密钥名称（自由命名）</li>
+                <li>有效期（最长1年）</li>
+                <li>字符额度（不可超账户总额）</li>
+              </ul>
+            </li>
+          </ol>
+          <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-x-auto">
+            <code class="text-sm font-mono">
+              API端点：https://aiagent.crazykangaroo.space/v1
+            </code>
+          </div>
+        </div>
+      </section>
+
+      <!-- API调用示例 -->
+      <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+        <h2 class="text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400">接口调用示例</h2>
+        <div class="space-y-6">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <pre class="text-sm text-white"><code class="language-bash">
+# cURL 示例
+curl https://aiagent.crazykangaroo.space/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer &lt;您的API密钥&gt;" \
+  -d '{
+    "model": "gpt-4",
+    "messages": [{"role": "user", "content": "你好"}]
+  }'
+            </code></pre>
+          </div>
+          
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <pre class="text-sm text-white"><code class="language-python">
+# Python示例
+import requests
+
+response = requests.post(
+    "https://aiagent.crazykangaroo.space/v1/chat/completions",
+    headers={
+        "Authorization": "Bearer &lt;您的API密钥&gt;",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "claude-2.1",
+        "messages": [{"role": "user", "content": "讲个笑话"}]
+    }
+)
+print(response.json())
+            </code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- 监控模块 -->
+      <section class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+        <h2 class="text-3xl font-bold mb-6 text-primary-600 dark:text-primary-400">用量监控与统计</h2>
+        <ul class="list-disc pl-6 space-y-4">
+          <li>实时查看「数据看板」：展示按时间/按API密钥的消耗趋势</li>
+          <li>设置用量预警：达到设定阈值时邮件通知</li>
+          <li>数据导出：支持CSV格式的历史记录</li>
+        </ul>
+      </section>
+    </article>
+
+    <!-- 帮助提示 -->
+    <div class="mt-16 p-8 bg-primary-50 dark:bg-gray-800 rounded-2xl text-center">
+      <h3 class="text-xl font-semibold mb-4">需要帮助？</h3>
+      <p class="mb-4">联系技术支持：<a href="mailto:support@kangarooapi.com" class="text-primary-600 hover:underline">support@kangarooapi.com</a></p>
+      <p class="text-sm opacity-75">服务响应时间：工作日9:00-23:00 2小时内回复</p>
+    </div>
+  </main>
+
+  <!-- 暗黑模式切换脚本（与主站一致） -->
+  <script>
+    const themeToggle = document.createElement('button');
+    themeToggle.id = 'theme-toggle';
+    themeToggle.className = 'fixed bottom-4 right-4 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg';
+    themeToggle.innerHTML = `
+      <svg id="icon-dark" class="w-6 h-6 text-gray-800 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+      </svg>
+      <svg id="icon-light" class="w-6 h-6 text-yellow-500 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path d="M12 2v1m0 18v1M4 4l1 1m14-1l-1 1M4 20l1-1m14 1l-1-1m2-10h-1M3 12H2m15.364-6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 12.728l-.707-.707M6.343 17.657l-.707-.707"/>
+      </svg>
+    `;
+    document.body.appendChild(themeToggle);
+
+    // 主题切换逻辑
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', 
+        document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+      );
+      document.getElementById('icon-dark').classList.toggle('hidden');
+      document.getElementById('icon-light').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
