@@ -72,27 +72,76 @@
       </div>
     </div>
   </section>
-
-
-    <section id="docs" class="bg-indigo-50 dark:bg-gray-800 py-16">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold mb-8">使用文档</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a href="https://question.crazykangaroo.space/archives/hello-halo" target="_blank" class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow hover:shadow-lg transition">
-            <p class="font-semibold mb-2">5分钟快速入门</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400">一键启动，看懂 API 调用流程</p>
-          </a>
-          <a href="https://question.crazykangaroo.space/archives/chang-jian-wen-ti" target="_blank" class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow hover:shadow-lg transition">
-            <p class="font-semibold mb-2">常见问题解答</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400">FAQ 与排障指南</p>
-          </a>
-          <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=&scene=124#wechat_redirect" target="_blank" class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow hover:shadow-lg transition">
-            <p class="font-semibold mb-2">客服与交流群</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400">关注公众号,获取专属客服联系方式及VIP用户群入口</p>
-          </a>
-        </div>
+  <section id="docs" class="bg-indigo-50 dark:bg-gray-800 py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-8">使用文档</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="https://question.crazykangaroo.space/archives/hello-halo" target="_blank" class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow hover:shadow-lg transition">
+          <p class="font-semibold mb-2">5分钟快速入门</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">一键启动，看懂 API 调用流程</p>
+        </a>
+        <a href="https://question.crazykangaroo.space/archives/chang-jian-wen-ti" target="_blank" class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow hover:shadow-lg transition">
+          <p class="font-semibold mb-2">常见问题解答</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">FAQ 与排障指南</p>
+        </a>
+        <!-- 改造：客服与交流群 -->
+        <a href="javascript:void(0);" id="wechat-follow" class="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow hover:shadow-lg transition cursor-pointer">
+          <p class="font-semibold mb-2">客服与交流群</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">关注公众号，获取专属客服联系方式及VIP用户群入口</p>
+        </a>
       </div>
-    </section>
+    </div>
+  
+    <!-- PC 端弹窗 Modal -->
+    <div id="wechat-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+      <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg max-w-sm w-full relative">
+        <button id="wechat-modal-close" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">&times;</button>
+        <h3 class="text-xl font-semibold mb-4">扫码关注公众号</h3>
+        <!-- 请将下面的 src 替换成你公众号的二维码图片 URL -->
+        <img src="https://raw.githubusercontent.com/JackXie-personal/img/%E8%A2%8B%E9%BC%A0%E4%B9%9F%E7%96%AF%E7%8B%82/qrcode_for_gh_0aeafed557b3_258.jpg" alt="公众号二维码" class="mx-auto w-48 h-48 object-contain" />
+        <p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">打开微信扫一扫，关注我们</p>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    (function() {
+      var followEl = document.getElementById('wechat-follow');
+      var modal   = document.getElementById('wechat-modal');
+      var closeBtn= document.getElementById('wechat-modal-close');
+  
+      followEl.addEventListener('click', function() {
+        var ua = navigator.userAgent || '';
+        var isMobile = /Mobi|Android|iPhone|iPad|iPod/.test(ua);
+  
+        if (isMobile) {
+          // 深度唤起：替换成你的公众号原始 ID（gh_ 开头）
+          window.location.href = 'weixin://dl/officialaccount?officialAccountID=gh_0aeafed557b3';
+  
+          // 1.5s 后降级到 H5 关注页：替换 __biz 和 scene
+          setTimeout(function() {
+            window.location.href = 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=&scene=124#wechat_redirect';
+          }, 1500);
+  
+        } else {
+          // PC 端：打开二维码弹窗
+          modal.classList.remove('hidden');
+        }
+      });
+  
+      closeBtn.addEventListener('click', function() {
+        modal.classList.add('hidden');
+      });
+  
+      // 点击遮罩也能关闭
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
+    })();
+  </script>
+
   </main>
 
   <!-- 页脚 -->
