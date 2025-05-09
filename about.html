@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 袋鼠也疯狂</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',  // 主蓝
+                        accent: '#2563EB',   // 深蓝
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .timeline-card:hover {
+            transform: translateX(5px);
+            border-left-color: #3B82F6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+<!-- 主要内容 -->
+<main>
+    <!-- 头部模块 -->
+    <section class="relative py-20 bg-gradient-to-b from-white to-blue-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-fade-in-up">
+                智能技术赋能未来
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                自2023年创立以来，我们致力于打造全球领先的AI API服务网络，累计处理
+                <span class="text-accent font-medium">120亿+</span>智能请求，
+                为<span class="text-primary">500+</span>开发者提供稳定支持
+            </p>
+        </div>
+    </section>
+
+    <!-- 时间轴模块 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">成长轨迹</h2>
+            <div class="space-y-12">
+                <!-- 时间线条目 -->
+                <div class="relative pl-8 border-l-2 border-blue-100 timeline-card transition-all">
+                    <div class="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0"></div>
+                    <div class="ml-6">
+                        <time class="text-sm text-blue-600">2022年11月</time>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">ChatGPT问世</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">
+                            人工智能领域迎来革命性突破，大模型时代正式开启
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-blue-100 timeline-card transition-all">
+                    <div class="absolute w-4 h-4 bg-accent rounded-full -left-2 top-0"></div>
+                    <div class="ml-6">
+                        <time class="text-sm text-blue-600">2023年3月</time>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">开放API服务</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">
+                            OpenAI开放模型接口，全球开发者开启AI应用新纪元
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-blue-100 timeline-card transition-all">
+                    <div class="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0"></div>
+                    <div class="ml-6">
+                        <time class="text-sm text-blue-600">2023年6月</time>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">技术社区启动</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">
+                            创立开发者社区，构建API资源智能管理方案
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-blue-100 timeline-card transition-all">
+                    <div class="absolute w-4 h-4 bg-accent rounded-full -left-2 top-0"></div>
+                    <div class="ml-6">
+                        <time class="text-sm text-blue-600">2023年9月</time>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">开放平台服务</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">
+                            正式推出全球化API服务平台，三个月内用户突破千人
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-blue-100 timeline-card transition-all">
+                    <div class="absolute w-4 h-4 bg-primary rounded-full -left-2 top-0"></div>
+                    <div class="ml-6">
+                        <time class="text-sm text-blue-600">2024年12月</time>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">服务周年里程碑</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">
+                            服务覆盖20+国家/地区，技术团队开启产学研融合新阶段
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative pl-8 border-l-2 border-blue-100 timeline-card transition-all">
+                    <div class="absolute w-4 h-4 bg-accent rounded-full -left-2 top-0"></div>
+                    <div class="ml-6">
+                        <time class="text-sm text-blue-600">2025年3月</time>
+                        <h3 class="mt-2 text-xl font-semibold text-gray-900">代码智援计划</h3>
+                        <p class="mt-2 text-gray-600 leading-relaxed">
+                            联合高校研究团队，推出开发者技术支持计划
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据看板 -->
+    <section class="py-20 bg-blue-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">99.98%</div>
+                    <h3 class="text-lg font-semibold text-gray-900">服务稳定性</h3>
+                    <p class="mt-1 text-sm text-gray-600">行业领先水平</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 text-center">
+                    <div class="text-4xl font-bold text-accent mb-2">18ms</div>
+                    <h3 class="text-lg font-semibold text-gray-900">响应速度</h3>
+                    <p class="mt-1 text-sm text-gray-600">亚太最优延迟</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-blue-100 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">2K+</div>
+                    <h3 class="text-lg font-semibold text-gray-900">服务用户</h3>
+                    <p class="mt-1 text-sm text-gray-600">覆盖20+国家</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8 text-sm">
+            <div>
+                <h4 class="text-white font-medium mb-4">技术支持</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="https://question.crazykangaroo.space/categories/ai-agent" 
+                           class="hover:text-primary transition-colors hover:underline">
+                            📚 文档中心
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://aiagent.crazykangaroo.space/pricing"
+                           class="hover:text-primary transition-colors hover:underline">
+                            🤖 模型列表与价格
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-medium mb-4">法律协议</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" 
+                           class="hover:text-primary transition-colors hover:underline">
+                            📃 用户协议
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" 
+                           class="hover:text-primary transition-colors hover:underline">
+                            🔒 隐私政策
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-span-2">
+                <h4 class="text-white font-medium mb-4">联系方式</h4>
+                <div class="grid gap-6 sm:grid-cols-2">
+                    <div>
+                        <p class="text-blue-200 font-medium mb-2">邮件支持</p>
+                        <p class="text-sm">
+                            📧 <a href="mailto:support@koala.ddns-ip.net" 
+                                class="hover:text-primary transition-colors">
+                                support@koala.ddns-ip.net
+                            </a>
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <p class="text-blue-200 font-medium mb-2">微信公众号</p>
+                        <div class="flex items-start space-x-3">
+                            <div class="bg-white p-1.5 rounded-lg shadow-sm">
+                                <img src="https://github.com/JackXie-personal/img/blob/main/qrcode_for_gh_0aeafed557b3_258.jpg?raw=true" 
+                                     alt="公众号二维码"
+                                     class="w-20 h-20 object-contain">
+                            </div>
+                            <div class="text-xs text-gray-400">
+                                <p>扫码关注获取:</p>
+                                <p class="mt-1">• 最新功能更新</p>
+                                <p>• 故障处理指南</p>
+                                <p>• 独家技术文档</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+            <p>&copy; 2014-2024 袋鼠也疯狂 保留所有权利</p>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
