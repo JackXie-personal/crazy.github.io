@@ -6,108 +6,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="疯狂袋鼠 AI 服务：一站式海外与国内主流大模型直连，极速稳定，仅需一次配置，助力学术、科研与代码开发。">
   <link rel="icon" href="/favicon.ico">
-  <link rel="preload" as="image" href="/hero-bg.jpg">
   <title>疯狂袋鼠 AI 服务</title>
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#1E40AF', /* Blue-800 */
-            accent: '#3B82F6'  /* Blue-500 */
+            primary: '#1E40AF',
+            accent: '#3B82F6',
+            codebg: '#f3f4f6'
+          },
+          boxShadow: {
+            card: '0 6px 16px -4px rgba(59,130,246,0.15)'
           }
         }
       }
     }
   </script>
 </head>
-<body class="flex flex-col min-h-screen bg-white text-gray-800 transition-colors">
-  <!-- Hero Section -->
-  <header class="relative bg-cover bg-center pt-16" style="background-image:url('/hero-bg.jpg')">
-    <div class="absolute inset-0 bg-white bg-opacity-60"></div>
-    <div class="container mx-auto px-6 py-32 relative text-center">
-      <h1 class="text-5xl font-extrabold text-primary mb-4">一次配置，自由切换海内外大模型</h1>
-      <p class="text-xl mb-8">官方 API Key 直连，安全稳定，助力学术研究、科研及代码编写</p>
-      <div class="space-x-4">
-        <a href="#scenarios" class="px-8 py-4 bg-accent text-white rounded-lg hover:bg-blue-400 transition">了解场景</a>
-        <a href="#docs" class="px-8 py-4 border-2 border-accent text-accent rounded-lg hover:bg-accent hover:text-white transition">快速入门</a>
+
+<body class="flex flex-col min-h-screen bg-white text-gray-800">
+  <!-- 导航 -->
+  <nav class="bg-white shadow-sm">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <img src="/logo.svg" alt="疯狂袋鼠" class="h-8 w-auto">
+          <span class="ml-2 text-xl font-bold text-primary">疯狂袋鼠AI</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="#features" class="hover:text-accent">核心功能</a>
+          <a href="#docs" class="hover:text-accent">文档</a>
+          <a href="#pricing" class="hover:text-accent">定价</a>
+        </div>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <!-- 核心功能 -->
-  <section id="features" class="container mx-auto px-6 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12 text-primary">核心功能与优势</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="p-6 bg-gray-50 rounded-2xl shadow hover:shadow-lg transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-accent mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg>
-        <h4 class="text-xl font-semibold mb-2">一键配置</h4>
-        <p>只需填写一处 API Key，自动接入 Google Gemini、Claude、Grok3 等主流模型。</p>
+  <!-- 主内容 -->
+  <main class="flex-1">
+    <!-- 首页大图 -->
+    <section class="relative h-[60vh]">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-90"></div>
+      <img src="https://source.unsplash.com/random/1920x1080/?ai" 
+           alt="AI背景" 
+           class="w-full h-full object-cover">
+      <div class="absolute inset-0 flex items-center justify-center text-center">
+        <div class="max-w-3xl px-4">
+          <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">智能未来 触手可及</h1>
+          <p class="text-xl text-gray-200 mb-8">全球主流大模型一站式解决方案</p>
+          <a href="#start" 
+             class="inline-block bg-accent hover:bg-blue-600 text-white px-8 py-3 rounded-full 
+                    shadow-lg transition transform hover:scale-105">
+            立即开始
+          </a>
+        </div>
       </div>
-      <div class="p-6 bg-gray-50 rounded-2xl shadow hover:shadow-lg transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-accent mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 12l2 2 4-4"/></svg>
-        <h4 class="text-xl font-semibold mb-2">官方直连</h4>
-        <p>直接调用官方 API，保证模型最新、稳定与安全。</p>
+    </section>
+
+    <!-- 功能介绍 -->
+    <section id="features" class="container mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <h2 class="text-3xl font-bold text-center mb-12 text-primary">核心功能</h2>
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="p-8 bg-white rounded-xl shadow-card hover:shadow-xl transition-all duration-300 border border-gray-100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold">全球模型直连</h3>
+        </div>
+        <p class="text-gray-600">支持 Gemini/Claude3/GPT-4 等 8+ 主流模型，无需切换工具</p>
       </div>
-      <div class="p-6 bg-gray-50 rounded-2xl shadow hover:shadow-lg transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-accent mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2"/></svg>
-        <h4 class="text-xl font-semibold mb-2">高稳定性</h4>
-        <p>官方 API 直连带来最高可用性与安全性，确保关键任务不中断。</p>
+      
+      <div class="p-8 bg-white rounded-xl shadow-card hover:shadow-xl transition-all duration-300 border border-gray-100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold">企业级安全</h3>
+        </div>
+        <p class="text-gray-600">SSL 加密传输，API Key 本地存储，零数据留存政策</p>
+      </div>
+      <div class="p-8 bg-white rounded-xl shadow-card hover:shadow-xl transition-all duration-300 border border-gray-100">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mr-3">
+            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold">智能路由</h3>
+        </div>
+        <p class="text-gray-600">自动选择最优线路，API 响应速度 <300ms</p>
+      </div>
+    </div>
+  </section>
+  <!-- 内容更丰富的使用场景 -->
+  <section id="scenarios" class="bg-gray-50 py-16 sm:py-20">
+    <div class="container mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-center mb-12 text-primary">典型使用场景</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      
+        <div class="p-6 bg-white rounded-xl shadow-card hover:shadow-lg transition-all">
+          <div class="flex items-center mb-4">
+            <span class="w-8 h-8 bg-accent/10 text-accent rounded-lg flex items-center justify-center mr-3">📑</span>
+            <h3 class="text-lg font-semibold">学术研究</h3>
+          </div>
+          <pre class="p-4 bg-codebg rounded-lg text-sm mb-3">生成论文摘要：
+            输入: "生成关于深度强化学习
+            在机器人控制中的最新进展的摘要"
+            模型输出: [生成 300 字规范摘要
+            带学术格式引用]</pre>
+          <p class="text-gray-600 text-sm">支持 LaTeX 公式渲染，自动文献整理</p>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-card hover:shadow-lg transition-all">
+          <div class="flex items-center mb-4">
+            <span class="w-8 h-8 bg-accent/10 text-accent rounded-lg flex items-center justify-center mr-3">💻</span>
+            <h3 class="text-lg font-semibold">代码开发</h3>
+          </div>
+          <pre class="p-4 bg-codebg rounded-lg text-sm mb-3">代码补全示例:
+            def calculate_fibonacci(n):
+            # 请用 Python 实现快速斐波那契算法
+    
+            模型补全:
+            if n <= 1: return n
+            a, b = 0, 1
+            for _ in range(n-1):
+                a, b = b, a+b
+            return b</pre>
+          <p class="text-gray-600 text-sm">支持 20+ 编程语言智能补全</p>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-card hover:shadow-lg transition-all">
+          <div class="flex items-center mb-4">
+            <span class="w-8 h-8 bg-accent/10 text-accent rounded-lg flex items-center justify-center mr-3">📊</span>
+            <h3 class="text-lg font-semibold">数据分析</h3>
+          </div>
+          <pre class="p-4 bg-codebg rounded-lg text-sm mb-3">df = pd.read_csv('data.csv')
+            # 请求数据分析建议：
+            "帮我分析销售数据的
+            季节性趋势并提供可视化方案"
+            模型返回:
+            1. 使用 statsmodels 进行 STL 分解
+            2. Seaborn 的 seasonal plot 方案
+            3. 预测模型建议</pre>
+          <p class="text-gray-600 text-sm">支持 Pandas/NumPy/Matplotlib 等数据分析库</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 使用场景 -->
-  <section id="scenarios" class="container mx-auto px-6 py-20">
-    <h2 class="text-3xl font-bold text-center mb-12 text-primary">适用场景示例</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="p-6 bg-gray-50 rounded-2xl shadow hover:shadow-lg transition text-left">
-        <h4 class="font-semibold mb-2">学术研究示例</h4>
-        <p>• 生成论文摘要：</p>
-        <pre class="bg-gray-100 p-2 rounded text-sm">response = client.summarize(text)</pre>
-      </div>
-      <div class="p-6 bg-gray-50 rounded-2xl shadow hover:shadow-lg transition text-left">
-        <h4 class="font-semibold mb-2">科学实验示例</h4>
-        <p>• 数据分析与可视化：</p>
-        <pre class="bg-gray-100 p-2 rounded text-sm">result = client.analyze(data)
-plot(result)</pre>
-      </div>
-      <div class="p-6 bg-gray-50 rounded-2xl shadow hover:shadow-lg transition text-left">
-        <h4 class="font-semibold mb-2">代码编写示例</h4>
-        <p>• 智能补全代码：</p>
-        <pre class="bg-gray-100 p-2 rounded text-sm">snippet = client.generate_code(prompt)</pre>
-      </div>
-    </div>
-  </section>
+    <!-- 文档与社区 -->
+    <section id="docs" class="bg-blue-50 py-20">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-8 text-primary">文档与社区</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="#" class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition text-left">
+            <h4 class="font-semibold mb-2">5 分钟快速入门</h4>
+            <p>一步配置，快速体验 API</p>
+          </a>
 
-  <!-- 选择我们的理由 -->
-  <section id="why" class="container mx-auto px-6 py-20">
-    <h2 class="text-3xl font-bold text-center mb-8 text-primary">为什么选择疯狂袋鼠？</h2>
-    <p class="max-w-2xl mx-auto text-center text-lg">我们的服务直接接入官方 API Key，不经过第三方转发，确保您使用的是最新的官方模型版本，并享有官方 SLA 支持与安全保障。虽然价格相对较高，但您获得的是业内最稳定可靠的模型直连体验，适用于关键科研与开发场景。</p>
-  </section>
+          <a href="https://blog.cloudself.ip-ddns.com/archives/chang-jian-wen-ti" 
+             class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition text-left"
+             target="_blank" rel="noopener noreferrer">
+            <h4 class="font-semibold mb-2">常见问题</h4>
+            <p>FAQ 与排障指南</p>
+          </a>
 
-  <!-- 文档与社区 -->
-  <section id="docs" class="bg-blue-50 py-20">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-8 text-primary">文档与社区</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="#" class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition text-left">
-          <h4 class="font-semibold mb-2">5 分钟快速入门</h4>
-          <p>一步配置，快速体验 API。</p>
-        </a>
-        <a href="#" class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition text-left">
-          <h4 class="font-semibold mb-2">常见问题</h4>
-          <p>FAQ 与排障指南。</p>
-        </a>
-        <a href="#support" class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition text-left">
-          <h4 class="font-semibold mb-2">客服与交流群</h4>
-          <p>扫码获取专属客服 & VIP 群。</p>
-        </a>
+          <!-- 客服二维码模块 -->
+          <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition text-center relative group"
+               id="support-card">
+            <div class="cursor-pointer">
+              <h4 class="font-semibold mb-4">客服与交流群</h4>
+              <div class="text-accent/80 hover:text-accent transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                </svg>
+                <p class="mt-2 text-sm">点击查看联系方式</p>
+              </div>
+            </div>
+
+            <!-- 二维码弹窗 -->
+            <div class="absolute hidden group-hover:block w-72 -bottom-[310px] left-1/2 -translate-x-1/2 z-50
+                        transition-all duration-300 opacity-0 group-hover:opacity-100">
+              <div class="bg-white p-4 rounded-xl shadow-2xl border border-gray-100 transform origin-bottom">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-white rotate-45 border-t border-l border-gray-100"></div>
+                <p class="text-sm mb-3 font-medium">扫码添加客服微信</p>
+                <img src="https://github.com/JackXie-personal/img/blob/main/qrcode_for_gh_0aeafed557b3_258.jpg?raw=true"
+                     alt="客服二维码"
+                     class="w-64 h-64 object-contain mx-auto border-4 border-accent/10 rounded-lg">
+                <p class="text-xs mt-2 text-gray-500">专属VIP技术支持群</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 定价模块 -->
+    <section id="pricing" class="py-20 bg-gray-50">
+      <!-- 定价内容... -->
+    </section>
+  </main>
 
   <!-- 页脚 -->
   <footer class="bg-gray-100 py-8 mt-auto">
@@ -116,7 +220,7 @@ plot(result)</pre>
         <h4 class="font-semibold mb-2">疯狂袋鼠</h4>
         <p>© 2025 袋鼠也疯狂</p>
       </div>
-      <div id="support" class="space-y-2">
+      <div class="space-y-2">
         <h4 class="font-semibold mb-2">支持</h4>
         <a href="mailto:support@kangarooapi.com" class="hover:underline">support@kangarooapi.com</a>
       </div>
@@ -129,5 +233,24 @@ plot(result)</pre>
       </div>
     </div>
   </footer>
+
+  <style>
+    /* 移动端二维码适配 */
+    @media (hover: none) {
+      #support-card:hover .group-hover\:block {
+        display: none !important;
+      }
+      #support-card:active .group-hover\:block {
+        display: block !important;
+        opacity: 1;
+      }
+      
+      /* 调整移动端定位 */
+      #support-card .group-hover\:block {
+        bottom: auto;
+        top: calc(100% + 20px);
+      }
+    }
+  </style>
 </body>
 </html>
