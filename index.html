@@ -12,18 +12,22 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            primary: '#1E40AF',
-            accent: '#3B82F6',
-            codebg: '#f3f4f6'
-          },
-          boxShadow: {
-            card: '0 6px 16px -4px rgba(59,130,246,0.15)'
-          }
+          colors: { primary: '#1E40AF', accent: '#3B82F6', codebg: '#f3f4f6' },
+          boxShadow: { card: '0 6px 16px -4px rgba(59,130,246,0.15)' }
         }
       }
     }
   </script>
+  <!-- 垂直滚动公告栏样式 -->
+  <style>
+    .announcement-container {
+      height: 2.5rem; overflow: hidden; position: relative; background-color: #3B82F6;
+    }
+    .announcement-list { transition: transform 0.6s ease; }
+    .announcement-list li {
+      height: 2.5rem; display: flex; align-items: center; padding: 0 1rem; color: white; white-space: nowrap;
+    }
+  </style>
 </head>
 <body class="flex flex-col min-h-screen bg-white text-gray-800">
   <!-- 主内容 -->
@@ -31,8 +35,7 @@
     <!-- 首页大图 -->
     <section class="relative h-[60vh]">
       <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-90"></div>
-      <img src="https://source.unsplash.com/random/1920x1080/?ai" 
-           class="w-full h-full object-cover">
+      <img src="https://source.unsplash.com/random/1920x1080/?ai" class="w-full h-full object-cover">
       <div class="absolute inset-0 flex items-center justify-center text-center">
         <div class="max-w-3xl px-4">
           <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">智能未来 触手可及</h1>
@@ -41,22 +44,31 @@
       </div>
     </section>
 
+    <!-- 垂直滚动公告栏 -->
+    <section class="announcement-container">
+      <ul class="announcement-list m-0 p-0 list-none">
+        <li>🚀 疯狂袋鼠上线啦！支持 Open-AI、Google Gemini、Claude、Grok3等大模型一次配置畅用。</li>
+        <li>📢 如果需要数据分析代码支持,请联系客服享受免费的代码与分析指导.</li>
+        <li>📢 讯飞星火大模型免费开放使用.</li>
+      </ul>
+    </section>
+    
   <!-- 核心功能 -->
-<section id="features" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12">核心功能与优势</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- 一键配置 -->
-      <div class="p-8 bg-white rounded-2xl shadow-card hover:shadow-lg transition-all duration-300">
-        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5">
-          <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" 
-                  d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
-          </svg>
+  <section id="features" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-12">核心功能与优势</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 一键配置 -->
+        <div class="p-8 bg-white rounded-2xl shadow-card hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" 
+                    d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-3">一键配置</h4>
+          <p class="text-gray-600 leading-relaxed">只需填写一处 API Key，自动接入 Google Gemini、Claude、Grok3 等主流模型。</p>
         </div>
-        <h4 class="text-xl font-semibold mb-3">一键配置</h4>
-        <p class="text-gray-600 leading-relaxed">只需填写一处 API Key，自动接入 Google Gemini、Claude、Grok3 等主流模型。</p>
-      </div>
 
       <!-- 官方直连 -->
       <div class="p-8 bg-white rounded-2xl shadow-card hover:shadow-lg transition-all duration-300">
@@ -291,5 +303,32 @@ def calculate_fibonacci(n):
       </div>
     </div>
   </footer>
+    <!-- 滚动逻辑脚本 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.querySelector('.announcement-container');
+      const list = container.querySelector('.announcement-list');
+      const items = Array.from(list.children);
+      const count = items.length;
+      const itemHeight = container.clientHeight;
+      let index = 0;
+      // 克隆第一条
+      list.appendChild(items[0].cloneNode(true));
+      setInterval(() => {
+        index++;
+        list.style.transform = `translateY(-${index * itemHeight}px)`;
+        if (index === count) {
+          setTimeout(() => {
+            list.style.transition = 'none';
+            list.style.transform = 'translateY(0)';
+            index = 0;
+            // 强制回流
+            void list.offsetWidth;
+            list.style.transition = 'transform 0.6s ease';
+          }, 600);
+        }
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
