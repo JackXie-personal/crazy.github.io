@@ -23,9 +23,24 @@
     .announcement-container {
       height: 2.5rem; overflow: hidden; position: relative; background-color: #3B82F6;
     }
-    .announcement-list { transition: transform 0.6s ease; }
+    .announcement-list {
+      transition: transform 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
     .announcement-list li {
-      height: 2.5rem; display: flex; align-items: center; padding: 0 1rem; color: white; white-space: nowrap;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      color: white;
+      white-space: nowrap;
+      width: 100%;
+      text-align: center;
     }
   </style>
 </head>
@@ -46,11 +61,14 @@
 
     <!-- 垂直滚动公告栏 -->
     <section class="announcement-container">
-      <ul class="announcement-list m-0 p-0 list-none">
-        <li>🚀 疯狂袋鼠上线啦！支持 Open-AI、Google Gemini、Claude、Grok3等大模型一次配置畅用。</li>
-        <li>📢 如果需要数据分析代码支持,请联系客服享受免费的代码与分析指导.</li>
-        <li>📢 讯飞星火大模型免费开放使用.</li>
-      </ul>
+      <div class="container mx-auto px-6 relative h-full overflow-hidden">
+        <ul class="announcement-list m-0 p-0 list-none">
+          <li>🚀 疯狂袋鼠上线啦！支持 Google Gemini、Claude、Grok3 一次配置畅用。</li>
+          <li>🔧 需要数据分析服务可联系客服,免费享受代码与分析服务。</li>
+          <li>📢 OpenAI做图模型已经开放,请使用Lobe Chat体验官方做图服务。</li>
+          <li>📢 讯飞星火模型免费开放。</li>
+        </ul>
+      </div>
     </section>
     
   <!-- 核心功能 -->
